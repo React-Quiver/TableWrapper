@@ -1,5 +1,5 @@
 {
-  "name": "quiver-newd-component",
+  "name": "quiver-table-wrapper",
   "version": "1.0.0",
   "description": "<%= componentName %> - React component",
   "main": "lib/index.js",
