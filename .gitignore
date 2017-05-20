@@ -4,5 +4,3 @@ ncp-debug.log
 npm-debug.log
 coverage
 .DS_Store
-es
-lib
