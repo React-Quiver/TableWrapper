@@ -544,7 +544,7 @@ var TableWrapper = function (_Component) {
         })
       );
 
-      return React.createElement(
+      return this.context.muiTheme ? JSX : React.createElement(
         MuiThemeProvider,
         null,
         JSX

@@ -498,6 +498,6 @@ export default class TableWrapper extends Component {
       </div>
     );
 
-    return (<MuiThemeProvider>{JSX}</MuiThemeProvider>);
+    return this.context.muiTheme ? JSX : (<MuiThemeProvider>{JSX}</MuiThemeProvider>);
   }
 }

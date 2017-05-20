@@ -2,8 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 import TableWrapper from '../src';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 const TableWrapperExample = require('raw!../src/TableWrapper.example');
+
+injectTapEventPlugin();
 
 const Index = () => (
   <div className="component-documentation">
