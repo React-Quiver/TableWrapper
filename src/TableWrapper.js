@@ -39,6 +39,7 @@ import styles from './styles';
 
 export default class TableWrapper extends Component {
   static propTypes = {
+    muiTheme: PropTypes.object,
     tableMeta: PropTypes.object,
     data: PropTypes.array,
     onCellClick: PropTypes.func,
@@ -480,6 +481,7 @@ export default class TableWrapper extends Component {
   }
 
   render() {
+    const { muiTheme } = this.props;
     const { fullHeight } = this.props.tableMeta.tableProperties;
     const JSX = (
       <div
@@ -498,6 +500,10 @@ export default class TableWrapper extends Component {
       </div>
     );
 
-    return this.context.muiTheme ? JSX : (<MuiThemeProvider>{JSX}</MuiThemeProvider>);
+    return (
+      <MuiThemeProvider muiTheme={muiTheme}>
+        {JSX}
+      </MuiThemeProvider>
+    );
   }
 }
