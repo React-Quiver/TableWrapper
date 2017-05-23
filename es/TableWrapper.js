@@ -544,9 +544,9 @@ var TableWrapper = function (_Component) {
         })
       );
 
-      return this.context.muiTheme ? JSX : React.createElement(
+      return React.createElement(
         MuiThemeProvider,
-        null,
+        { muiTheme: this.context.muiTheme },
         JSX
       );
     }
@@ -559,5 +559,8 @@ TableWrapper.propTypes = {
   tableMeta: PropTypes.object,
   data: PropTypes.array,
   onCellClick: PropTypes.func
+};
+TableWrapper.contextTypes = {
+  muiTheme: PropTypes.object.isRequired
 };
 export default TableWrapper;
