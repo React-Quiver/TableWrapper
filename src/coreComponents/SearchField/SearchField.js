@@ -51,7 +51,8 @@ export default class SearchField extends Component {
   }
 
   render() {
-    const { muiTheme: { rawTheme: { palette } } } = this.context;
+    const { muiTheme } = this.context;
+    const palette = muiTheme ? muiTheme.rawTheme.palette : undefined;
     const { hintText, searchState } = this.props;
 
     return (
@@ -59,7 +60,7 @@ export default class SearchField extends Component {
         style={{
           width: '100%',
           height: 35,
-          background: searchState ? '#e1f5fe' : '#ececec',
+          background: searchState && palette ? palette.primary2Color : '#ececec',
           borderRadius: 3,
         }}
       >
@@ -74,7 +75,7 @@ export default class SearchField extends Component {
         <TextField
           inputStyle=
           {{
-            color: (searchState !== '') ? palette.primary1Color : undefined,
+            color: (searchState !== '') && palette ? palette.primary1Color : undefined,
           }}
           value={ searchState || '' }
           onChange={
@@ -89,7 +90,7 @@ export default class SearchField extends Component {
           onClick={::this.clear}
         >
           <Close
-            color={ (searchState !== '') && (searchState !== undefined) ?
+            color={ (searchState !== '') && (searchState !== undefined) && palette ?
               palette.primary1Color : undefined }
             style={styles.close}
           />

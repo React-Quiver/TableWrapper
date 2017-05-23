@@ -53,7 +53,9 @@ var SearchDate = function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var palette = this.context.muiTheme.rawTheme.palette;
+      var muiTheme = this.context.muiTheme;
+
+      var palette = muiTheme ? muiTheme.rawTheme.palette : undefined;
       var _props3 = this.props,
           hintText = _props3.hintText,
           searchState = _props3.searchState;
@@ -65,7 +67,7 @@ var SearchDate = function (_Component) {
           style: {
             width: '100%',
             height: 35,
-            background: searchState ? '#e1f5fe' : '#ececec',
+            background: searchState && palette ? palette.primary2Color : '#ececec',
             borderRadius: 3
           }
         },
@@ -81,7 +83,7 @@ var SearchDate = function (_Component) {
         ),
         React.createElement(DatePicker, {
           inputStyle: {
-            color: searchState !== '' ? palette.primary1Color : undefined
+            color: searchState !== '' && palette ? palette.primary1Color : undefined
           },
           value: searchState ? new Date(searchState) : undefined,
           onChange: function onChange(e, date) {
@@ -98,7 +100,7 @@ var SearchDate = function (_Component) {
             onClick: this.clear.bind(this)
           },
           React.createElement(Close, {
-            color: searchState !== '' && searchState !== undefined ? palette.primary1Color : undefined,
+            color: searchState !== '' && searchState !== undefined && palette ? palette.primary1Color : undefined,
             style: styles.close
           })
         ) : null
