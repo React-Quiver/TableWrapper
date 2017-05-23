@@ -87,7 +87,7 @@ var SearchAutoComplete = function (_Component) {
           style: {
             width: '100%',
             height: 35,
-            background: searchState && palette ? palette.primary2Color : '#ececec',
+            background: searchState && palette ? palette.accent2Color : '#ececec',
             borderRadius: 3
           }
         },
